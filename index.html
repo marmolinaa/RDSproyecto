@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- 
+    <link role="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link role="stylesheet" type="text/css" href="js/jquery.min.js">
+    <link role="stylesheet" type="text/css" href="js/popper.min.js">
+    <link role="stylesheet" type="text/css" href="js/bootstrap.min.js">
+    -->
+    
+    <title>RDSproyecto</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="subnet.js"></script>
+
+    <!-- TOP BAR CON IMAGENES DE LA UNAM Y LA FACULTAD -->
+    <nav class="sticky-top py-1" style="background-color: #ffffff; position: static;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <img src="assets/UNAM.png" class="rounded float-left img-fluid" alt="Responsive image">
+            <img src="assets/FI.png" class="rounded float-right img-fluid" alt="Responsive image">
+        </div>
+    </nav>
+    <!-- DATOS DEL PROYECTO -->
+    <div class="card text-white bg-danger" style="width: 100%;">
+        <div class="card-header row mr-0">
+            <div class="col">
+                <p><em>Asignatura: <p><strong>REDES DE DATOS SEGURAS</strong></p></em></p>
+            </div>
+            <div class="col">
+                <p><em>Profesora: <p><strong>M.C. Cintia Quezada Reyes</strong></p></em></p>
+            </div>
+            <div class="col">
+                <p><em>Alumnos:
+                        <p><strong>Aguilera Palacios Luis Ernesto</strong></p>
+                        <p><strong>Molina Medina Marco Antonio</strong></p>
+                    </em></p>
+            </div>
+            <div class="col">
+                <p><em>Tema: <p><strong>RDS PROYECTO</strong></p></em></p>
+            </div>
+            <div class="col">
+                <p><em>Grupo: <p><strong>01</strong></p></em></p>
+            </div>
+        </div>
+        <div class="card-body row mr-0">
+            <div class="col">
+                <p><em>INSTRUCCIONES DE USO: <p><strong>La aplicación cuenta con dos opciones ...</strong></p></em></p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MENÚ DE ALGORITMOS -->
+    <ul class="nav nav-pills row card border-primary mr-0" id="pills-tab" role="tablist" style="flex-direction: row;">
+        <li class="nav-item col-6 p-0">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                aria-controls="pills-home" aria-selected="true">
+                A) Sumarización de rutas
+            </a>
+        </li>
+        <li class="nav-item col-6 p-0">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                aria-controls="pills-profile" aria-selected="false">
+                B) Subneteo
+            </a>
+        </li>
+    </ul>
+
+
+    <!-- CUERPO -->
+
+    <div class="tab-content container mt-3" id="pills-tabContent">
+
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+        </div>
+
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+            <div class="row">
+                <form class="col">
+                    <div class="form-group">
+                        <label for="ip">Dirección IP:</label>
+                        <input type="text" class="form-control form-control-sm" id="ip" onchange="marco(this.id)">
+                    </div>
+                </form>
+                <form class="col">
+                    <div class="form-group">
+                        <label for="class">Clase:</label>
+                        <select class="form-control form-control-sm" id="class" onchange="marco(this.id)">
+                            <option id="classA">A</option>
+                            <option id="classB">B</option>
+                            <option id="classC">C</option>
+                        </select>
+                    </div>
+                </form>
+                <form class="col">
+                    <div class="form-group">
+                        <label for="hosts">Direcciones:</label>
+                        <select class="form-control form-control-sm" id="hosts" onchange="marco(this.id)"></select>
+                    </div>
+                </form>
+                <form class="col">
+                    <div class="form-group">
+                        <label for="subnets">Subredes:</label>
+                        <select class="form-control form-control-sm" id="subnets" onkeypress="marco(this.id)"></select>
+                    </div>
+                </form>
+                <form class="col">
+                    <div class="form-group">
+                        <label for="mask">Máscara:</label>
+                        <select class="form-control form-control-sm" id="mask" onchange="marco(this.id)"></select>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" id="prevsubnet" value="Anterior" onclick="marco(this.id);"
+                        class="btn btn-outline-success col">Anterior</button>
+                </div>
+                <div class="col">
+                    <button type="submit" id="nextsubnet" value="Siguiente" onclick="marco(this.id);"
+                        class="btn btn-outline-success col">Siguiente</button>
+                </div>
+
+            </div>
+
+            <table class="table table-bordered mt-3" id="infotable">
+
+                <tr class="thead-dark">
+                    <th scope="col">#</th>
+                    <th scope="col" class="dec">Decimal</th>
+                    <th scope="col" class="hex">Hexadecimal</th>
+                    <th scope="col" class="bin">Binario</th>
+                </tr>
+
+                <tr class="even">
+                    <th scope="row">ID de red</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">ID de subred</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="even">
+                    <th scope="row">Primera dirección</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Última dirección</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="even">
+                    <th scope="row">Dirección de Broadcast</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Máscara de subred</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="even">
+                    <th scope="row">Wildcard</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+    <script>marco("load");</script>
+</body>
+
+</html>
